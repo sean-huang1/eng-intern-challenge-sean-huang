@@ -1,6 +1,6 @@
 import sys
 
-BRAILLE_DICT = {
+BRAILLE_SYMBOLS = {
     'a': 'O.....', 'b': 'O.O...', 'c': 'OO....', 'd': 'OO.O..', 'e': 'O..O..', 
     'f': 'OOO...', 'g': 'OOOO..', 'h': 'O.OO..', 'i': '.OO...', 'j': '.OOO..', 
     'k': 'O...O.', 'l': 'O.O.O.', 'm': 'OO..O.', 'n': 'OO.OO.', 'o': 'O..OO.', 
@@ -11,8 +11,6 @@ BRAILLE_DICT = {
     '6': 'OOO...', '7': 'OOOO..', '8': 'O.OO..', '9': '.OO...', '0': '.OOO..',
     ' ': '......'
 }
-
-REVERSE_BRAILLE_DICT = {v: k for k, v in BRAILLE_DICT.items()}
 
 CAPITAL_MARKER = '.....O'
 
@@ -25,7 +23,7 @@ def englishToBraille(text):
         if char.isupper():
             braille.append(CAPITAL_MARKER)
             char = char.lower()
-        braille.append(BRAILLE_DICT.get(char, '......'))  
+        braille.append(BRAILLE_SYMBOLS.get(char, '......'))  
     return ''.join(braille)
 
 input_text = sys.argv[1]
